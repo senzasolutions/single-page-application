@@ -2,8 +2,15 @@
 <%= render @emp %>
 
 <div>
-  <%= link_to "Edit this emp", edit_emp_path(@emp) %> |
+  <%
+=begin%>
+ <%= link_to "Edit this emp", edit_emp_path(@emp) %> |
   <%= link_to "Back to emps", emps_path %>
 
   <%= button_to "Destroy this emp", @emp, method: :delete %>
+<%
+=end%>
+    <%= link_to "GO BACK", root_path class:"btn btn-outline-success" %>
+
+
 </div>

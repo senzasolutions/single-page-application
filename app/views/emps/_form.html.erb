@@ -1,6 +1,8 @@
 <%= form_with model: @emp, validate: true do |form| %>
 
 
+<%
+=begin%>
  
  <% if emp.errors.any? %>
     <div class="alert alert-warning alert-dismissible fade show" >
@@ -13,6 +15,8 @@
       </ul>
     </div>
   <% end %>
+<%
+=end%>
 
 <br>
   <div>
