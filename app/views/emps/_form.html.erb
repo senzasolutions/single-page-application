@@ -1,0 +1,39 @@
+<%= form_with model: @emp, validate: true do |form| %>
+
+
+ 
+ <% if emp.errors.any? %>
+    <div class="alert alert-warning alert-dismissible fade show" >
+      <h4><%= pluralize(emp.errors.count, "error") %> prohibited this emp from being saved:</h4>
+
+      <ul>
+        <% emp.errors.each do |error| %>
+          <li style="list-style:none;"><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<br>
+  <div>
+
+    <%= form.text_field :employer,validate: true ,placeholder:"Employer Name" , class:"form-control", id:"employer", oninput:"two('employer')"%>
+  </div>
+  <br>
+
+
+  <div>
+    <%= form.label :Date_Started, style: "display: block" %>
+    <%= form.date_field :date_start,validate: true , class:"form-control" , id:"ds", oninput:"two('ds')"%>
+  </div>
+<br>
+
+  <div>
+    <%= form.label :Date_Employment_Ended, style: "display: block" %>
+    <%= form.date_field :date_end ,validate: true , class:"form-control", id:"de", oninput:"two('de')"%>
+  </div>
+<br>
+  <div>
+    <%= form.submit class:"btn btn-outline-info", value:"SAVE",id:"dsave" %> |  <%= link_to "CANCEL", root_path, class:"btn btn-outline-secondary" %>
+  </div>
+<% end %>

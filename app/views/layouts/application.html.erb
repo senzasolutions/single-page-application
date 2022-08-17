@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags  %>
+
+
+
+  </head>
+
+  <body>
+    <% if notice %>
+    <%= render 'layouts/alert' %>
+  <% end %>
+  <div class="container">
+<br>
+    <%= yield %>
+  </div>
+
+  <script>
+
+    var fname = document.getElementById('fname');
+    var lname  =document.getElementById('lname');
+    var nname = document.getElementById('nname');
+    var email = document.getElementById('email');
+    var phone = document.getElementById('phone');
+    var save = document.getElementById('save');
+    var a, b ,c ,d ,e ;
+
+    function one(event){
+      console.log(fname.value);
+      if(event == 'fname'){
+        console.log(fname.value);
+        if(fname.value != ''){
+          a = true;
+        }
+        else
+        {
+          a = false;
+        }
+      }
+      console.log(lname.value);
+      if(event == 'lname'){
+        if(lname.value != ''){
+          b = true;
+        }
+        else
+        {
+          b = false;
+        }
+      }
+      console.log(nname.value);
+      if(event == 'nname'){
+        if(nname.value != ''){
+          c = true;
+        }
+        else
+        {
+          c = false;
+        }
+      }
+      console.log(email.value);
+      if(event == 'email'){
+        if(email.value != ''){
+          d = true;
+          phone.removeAttribute('disabled');
+        }
+        else
+        {
+          d = false;
+          phone.setAttribute('disabled' , true);
+        }
+      }
+      console.log(phone.value);
+      if(event == 'phone'){
+        if(phone.value != ''){
+          e = true;
+        }
+        else
+        {
+          e = false;
+        }
+      }
+      if(a && b && c && d && e){
+        save.style.background = 'green';
+        save.style.color = 'white';
+      }
+    }
+
+
+// =================employee============
+
+    var employer = document.getElementById('employer');
+
+    var ds = document.getElementById('ds');
+    var de  =document.getElementById('de');
+     var dsave = document.getElementById('dsave');
+    var z, y ,x ;
+
+    function two(event){
+       console.log(employer.value);
+      if(event == 'employer'){
+        console.log(employer.value);
+        if(employer.value != ''){
+          x = true;
+        }
+        else
+        {
+          x = false;
+        }
+      }
+      console.log(ds.value);
+      if(event == 'ds'){
+        console.log(ds.value);
+        if(ds.value != ''){
+          z = true;
+        }
+        else
+        {
+          z = false;
+        }
+      }
+      console.log(de.value);
+      if(event == 'de'){
+        if(de.value != ''){
+          y = true;
+        }
+        else
+        {
+          y = false;
+        }
+      }
+
+      if(z&& y && x ){
+        dsave.style.background = 'green';
+        dsave.style.color = 'white';
+      }
+    }
+
+    // ============= number ====================
+
+
+     var num = document.getElementById('phone');
+        function number(){
+            var a = num.value;
+
+            console.log(num.value);
+            console.log(a.length)
+            if(a.length == '3'){
+                num.value += '-';
+            }
+            if(a.length == '7'){
+
+                num.value += '-';
+            }
+
+        }
+        function onpress(e){
+            console.log(e.keyCode);
+            if(e.keyCode == '8' && ((num.value.length == '4') || (num.value.length == '8')) ){
+                console.log(num.value.length);
+                console.log(num.value);
+                num.value = num.value.slice(0, num.value.length -1);
+            }
+        }
+
+
+
+  </script>
+  </body>
+</html>

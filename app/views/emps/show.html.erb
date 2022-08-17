@@ -1,0 +1,9 @@
+
+<%= render @emp %>
+
+<div>
+  <%= link_to "Edit this emp", edit_emp_path(@emp) %> |
+  <%= link_to "Back to emps", emps_path %>
+
+  <%= button_to "Destroy this emp", @emp, method: :delete %>
+</div>

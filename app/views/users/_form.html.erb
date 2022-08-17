@@ -1,0 +1,54 @@
+
+
+<%= form_with model: @user, validate: true do |form| %>
+
+
+
+ <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <br>
+
+  <div>
+
+    <%= form.text_field :first_name ,validate: true ,placeholder:"First Name", class:"form-control" , oninput:"one('fname')", id:"fname"%>
+  </div>
+<br>
+  <div>
+
+    <%= form.text_field :last_name,validate: true ,placeholder:"Last Name", class:"form-control", oninput:"one('lname')", id:"lname" %>
+  </div>
+<br>
+  <div>
+
+    <%= form.text_field :nickname,validate: true  ,placeholder:"Nick Name", class:"form-control", oninput:"one('nname')", id:"nname"%>
+  </div>
+<br>
+  <div>
+
+    <%= form.email_field :email, validate: true  , placeholder:"example@example.com", class:"form-control", oninput:"one('email')", id:"email"%>
+  </div>
+
+
+
+<br>
+  <div>
+    <%= form.text_field :phone ,oninput:"number(),one('phone')", onKeydown:"onpress(event)",validate: true ,placeholder:"###-###-####", class:"form-control",:disabled => true, id:"phone"%>
+  </div>
+<br>
+  <div>
+    <%= form.submit class:"btn btn-outline-info", id:"save", value:"SAVE" %> |  <%= link_to "CANCEL", root_path, class:"btn btn-outline-secondary" %>
+  </div>
+<% end %>

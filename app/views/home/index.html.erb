@@ -1,0 +1,62 @@
+
+
+
+<style>
+    #allTheThings {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  margin: 8em auto;
+  font-size: 1.3rem;
+  color: #94aab0;
+  display: block;
+}
+a{
+	color: #94aab0;
+	text-decoration: none;
+}
+#member{
+	display: inline-block;
+}
+#verticalLine {
+	display: inline-block;
+	margin-left: 20px;
+    border-left: solid #343642;
+}
+#librarian-link{
+	margin-left: 20px;
+}
+#member, #librarian
+{
+	transition: all .2s ease-in-out;
+}
+#member:hover, #librarian:hover
+{
+	transform: scale(1.1);
+}
+
+</style>
+
+
+	<body>
+		<div id="allTheThings">
+			<div id="member">
+				<a>
+					 <%= image_tag 'personal-information.png', alt: 'icon',:style => 'width:150px ' %><br />
+					&nbsp;<%= link_to "personl data",new_user_path %>
+				</a>
+			</div>
+			<div id="verticalLine">
+				<div id="librarian">
+					<a id="librarian-link" >
+
+
+                        <%= image_tag 'employee.png', alt: 'icon',:style => 'width:150px ' %>
+                        <br />
+						&nbsp;&nbsp;&nbsp;<%= link_to "Employment",new_emp_path %>
+
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>

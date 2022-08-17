@@ -1,0 +1,14 @@
+
+
+<h1>Emps</h1>
+
+<div id="emps">
+  <% @emps.each do |emp| %>
+    <%= render emp %>
+    <p>
+      <%= link_to "Show this emp", emp %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New emp", new_emp_path %>
